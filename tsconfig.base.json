@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@parking-lot/parking-lot-api": ["packages/parking-lot-api/src/index.ts"]
+      "@parking-lot/parking-lot-api": ["packages/parking-lot-api/src/index.ts"],
+      "@parking-lot/ui": ["packages/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
