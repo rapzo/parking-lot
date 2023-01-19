@@ -38,3 +38,10 @@ Promise.all([1,2,3,4].map((i) => {
   return getX(i).then(x => x + i)
 }))
 ```
+
+
+## Como correr a aplicação
+
+- `npx nx run app:serve` para executar a aplicação no terminal
+
+- `npx nx run app:test` para executar os testes da aplicação
