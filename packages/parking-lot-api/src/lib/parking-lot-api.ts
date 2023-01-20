@@ -14,8 +14,6 @@ import { waitFor } from "./wait-for";
 // async getAvailableParkingSpots(): Promise<string[]>
 
 export async function getSections(): Promise<string[]> {
-  await waitFor(3000);
-
   return ["A", "B", "C", "F"];
 }
 
@@ -24,8 +22,6 @@ export async function getSections(): Promise<string[]> {
 //   [x, x, x, x],
 // ]
 export async function getSensorsFrom(sectionId: string): Promise<number[]> {
-  await waitFor(3000);
-
   switch (sectionId.toLocaleUpperCase()) {
     case "A":
       return [1, 2];
@@ -46,7 +42,6 @@ export async function getSensorStatus(
   sectonId: string,
   sensorId: number,
 ): Promise<boolean> {
-  await waitFor(1500);
   return true;
 }
 
