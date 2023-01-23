@@ -6,5 +6,6 @@ describe("Button", () => {
   it("should render successfully", () => {
     const { baseElement } = render(<Button>hi</Button>);
     expect(baseElement).toBeTruthy();
+    expect(baseElement.textContent).toEqual("hi");
   });
 });

@@ -1,13 +1,13 @@
-import { getGreeting } from "../support/app.po";
+import { getPageTitle } from "../support/app.po";
 
 describe("web", () => {
-  beforeEach(() => cy.visit("/"));
+  it("should display home page", () => {
+    cy.visit("/");
+    getPageTitle().contains("Parking Lot");
+  });
 
-  it("should display welcome message", () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login("my-email@something.com", "myPassword");
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains("Welcome web");
+  it("should display settings page", () => {
+    cy.visit("/settings");
+    getPageTitle().contains("Parking Lot Settings");
   });
 });
