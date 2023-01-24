@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { NavBar } from "./nav-bar/NavBar";
-
-import "./App.module.css";
 import Home from "./routes/home/Home";
 import Settings from "./routes/settings/Settings";
+
+import "./App.module.css";
 
 export function App() {
   const routes = [

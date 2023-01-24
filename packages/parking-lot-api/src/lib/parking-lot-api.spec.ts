@@ -10,7 +10,7 @@ import {
 describe("Parking Lot Tests", () => {
   describe("getSection", () => {
     it("should get all the available sections from the parking lot", () => {
-      expect(getSections()).resolves.toStrictEqual(["A", "B", "C", "F"]);
+      expect(getSections()).resolves.toStrictEqual(["A", "B", "C", "D", "E"]);
     });
   });
 
