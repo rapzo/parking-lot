@@ -1,5 +1,3 @@
-import { waitFor } from "./wait-for";
-
 // // obter lista de IDs das secções
 // async getSections(): Promise<string[]>
 
@@ -13,8 +11,15 @@ import { waitFor } from "./wait-for";
 // // ["A#1", "A#2", "B#5"] são os lugares livres
 // async getAvailableParkingSpots(): Promise<string[]>
 
-export async function getSections(): Promise<string[]> {
-  return ["A", "B", "C", "F"];
+export async function getSections(sections = 5): Promise<string[]> {
+  // ASCII range for capital letters: 65->90
+  if (sections < 1 || sections > 25) {
+    throw new Error("Invalid number of sections");
+  }
+
+  return new Array(sections).fill(0).map((_, index) => {
+    return String.fromCharCode(65 + index);
+  });
 }
 
 // [
@@ -22,6 +27,12 @@ export async function getSections(): Promise<string[]> {
 //   [x, x, x, x],
 // ]
 export async function getSensorsFrom(sectionId: string): Promise<number[]> {
+  const sections = await getSections();
+
+  if (!sections.includes(sectionId.toLocaleUpperCase())) {
+    throw new Error(`Parking Lot Section #${sectionId} doesn't exist`);
+  }
+
   switch (sectionId.toLocaleUpperCase()) {
     case "A":
       return [1, 2];
@@ -31,7 +42,7 @@ export async function getSensorsFrom(sectionId: string): Promise<number[]> {
       return [];
     case "D":
       return [];
-    case "F":
+    case "E":
       return [];
     default:
       throw new Error(`Parking Lot Section #${sectionId} doesn't exist`);
